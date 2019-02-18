@@ -1,6 +1,6 @@
 {
-  "name": "mini-googlecalendar-event",
-  "version": "0.0.1",
+  "name": "@kuro-kuroite/mini-googlecalendar-event",
+  "version": "0.0.1-alpha.1",
   "description": "",
   "main": "dist/index.js",
   "repository": "",
