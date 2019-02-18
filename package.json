@@ -1,20 +1,9 @@
 {
   "name": "@kuro-kuroite/mini-googlecalendar-event",
   "version": "0.0.1-alpha.1",
-  "description": "",
-  "main": "dist/index.js",
-  "repository": "",
-  "author": "",
-  "license": "MIT",
-  "private": true,
-  "scripts": {
-    "deploy": "node ./scripts/babel/deploy.js src/js",
-    ".babel": "node ./scripts/babel/index.js write-chenged",
-    ".babel:all": "node ./scripts/babel/index.js write",
-    ".linc": "node ./scripts/tasks/linc.js",
-    ".lint": "node ./scripts/tasks/eslint.js",
-    ".prettier": "node ./scripts/prettier/index.js write-chenged",
-    ".prettier:all": "node ./scripts/prettier/index.js write"
+  "dependencies": {
+    "date-fns": "^2.0.0-alpha.26",
+    "date-fns-tz": "^1.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.0",
@@ -36,8 +25,17 @@
     "path": "^0.12.7",
     "prettier": "^1.15.3"
   },
-  "dependencies": {
-    "date-fns": "^2.0.0-alpha.26",
-    "date-fns-tz": "^1.0.0"
+  "license": "MIT",
+  "main": "dist/index.js",
+  "private": true,
+  "repository": "",
+  "scripts": {
+    ".babel": "node ./scripts/babel/index.js write-chenged",
+    ".babel:all": "node ./scripts/babel/index.js write",
+    ".linc": "node ./scripts/tasks/linc.js",
+    ".lint": "node ./scripts/tasks/eslint.js",
+    ".prettier": "node ./scripts/prettier/index.js write-chenged",
+    ".prettier:all": "node ./scripts/prettier/index.js write",
+    "deploy": "node ./scripts/babel/deploy.js src/js"
   }
 }
