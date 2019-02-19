@@ -5,15 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _ja = _interopRequireDefault(require("date-fns/locale/ja"));
-
-var _enUS = _interopRequireDefault(require("date-fns/locale/en-US"));
-
-var _dateFnsTz = require("date-fns-tz");
-
-require("../../atoms/dirty_date_fns");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _prelude = require("@kuro-kuroite/prelude");
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -27,20 +19,12 @@ var CalendarEvent =
 function () {
   function CalendarEvent() {
     var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
-        _ref$language = _ref.language,
-        language = _ref$language === void 0 ? 'en' : _ref$language;
+        _ref$region = _ref.region,
+        region = _ref$region === void 0 ? 'US' : _ref$region;
 
     _classCallCheck(this, CalendarEvent);
 
-    if (language === 'en') {
-      this.language = _enUS.default;
-      this.language.code = 'en-US';
-      this.language.timeZone = 'America/New_York';
-    } else if (language === 'ja') {
-      this.language = _ja.default;
-      this.language.code = 'ja-JP';
-      this.language.timeZone = 'Asia/Tokyo';
-    }
+    this.dateFns = new _prelude.DateFnsTz(region);
   }
 
   _createClass(CalendarEvent, [{
@@ -67,30 +51,17 @@ function () {
     key: "parseStartTime",
     value: function parseStartTime(event) {
       // console.log(fetchInitialValues());
-      return (0, _dateFnsTz.toDate)(this.getStartTime(event), {
-        timeZone: this.language.code
-      });
+      return this.dateFns.toDate(this.getStartTime(event));
     }
   }, {
     key: "parseEndTime",
     value: function parseEndTime(event) {
-      return (0, _dateFnsTz.toDate)(this.getEndTime(event), {
-        timeZone: this.language.code
-      });
+      return this.dateFns.toDate(this.getEndTime(event));
     }
   }, {
     key: "getStartTimesOfDay",
     value: function getStartTimesOfDay(event) {
-      // return format(utcToZonedTime(this.parseStartTime(event), this.language.code), 'pppp', {
-      //   locale: this.language,
-      //   timeZone: this.language.code,
-      //   awareOfUnicodeTokens: true,
-      // });
-      return (0, _dateFnsTz.format)((0, _dateFnsTz.utcToZonedTime)(this.getStartTime(event), this.language.timeZone), 'BBBB p', {
-        locale: this.language,
-        timeZone: this.language.timeZone,
-        awareOfUnicodeTokens: true
-      });
+      return this.dateFns.format(this.dateFns.utcToZonedTime(this.getStartTime(event)), 'BBBB p');
     }
   }]);
 

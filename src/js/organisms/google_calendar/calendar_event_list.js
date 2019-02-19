@@ -1,9 +1,9 @@
 import { CalendarEvent } from '../../atoms/google_calendar';
 
 export default class CalendarEventList {
-  constructor(events = [], { language = 'en' } = {}) {
+  constructor(events = [], { region = 'US' } = {}) {
     this.events = events;
-    this.event = new CalendarEvent({ language });
+    this.event = new CalendarEvent({ region });
   }
 
   concatEvents(events = this.events, createEventStringCallback) {

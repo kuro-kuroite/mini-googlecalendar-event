@@ -20,14 +20,14 @@ function () {
     var events = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
 
     var _ref = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {},
-        _ref$language = _ref.language,
-        language = _ref$language === void 0 ? 'en' : _ref$language;
+        _ref$region = _ref.region,
+        region = _ref$region === void 0 ? 'US' : _ref$region;
 
     _classCallCheck(this, CalendarEventList);
 
     this.events = events;
     this.event = new _google_calendar.CalendarEvent({
-      language: language
+      region: region
     });
   }
 

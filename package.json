@@ -2,8 +2,7 @@
   "name": "@kuro-kuroite/mini-googlecalendar-event",
   "version": "0.0.1-alpha.1",
   "dependencies": {
-    "date-fns": "^2.0.0-alpha.25",
-    "date-fns-tz": "^1.0.0"
+    "@kuro-kuroite/prelude": "https://github.com/kuro-kuroite/prelude.git#feature/future"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.0",

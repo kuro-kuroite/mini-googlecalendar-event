@@ -57,7 +57,7 @@ const events = [
   },
 ];
 
-const eventList = new CalendarEventList(events, { language: 'ja' });
+const eventList = new CalendarEventList(events, { region: 'JP' });
 
 const eventsContent = eventList.concatEvents(
   events,
