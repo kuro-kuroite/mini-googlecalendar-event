@@ -9,3 +9,7 @@ dist/
 
 # igrnore because it make only by yarn
 yarn.lock
+
+# for npm-scripts
+scripts/**/*.js
+!scripts/**/*.babel.js
