@@ -15,11 +15,11 @@ export default class CalendarEvent {
   }
 
   getStartTime(event) {
-    return event.start.dateTime;
+    return this.dateFns.zonedTimeToUtc(event.start.dateTime);
   }
 
   getEndTime(event) {
-    return event.end.dateTime;
+    return this.dateFns.zonedTimeToUtc(event.end.dateTime);
   }
 
   parseStartTime(event) {
@@ -32,9 +32,6 @@ export default class CalendarEvent {
   }
 
   getStartTimesOfDay(event) {
-    return this.dateFns.format(
-      this.dateFns.utcToZonedTime(this.getStartTime(event)),
-      'BBBB p',
-    );
+    return this.dateFns.format(this.getStartTime(event), 'BBBB p');
   }
 }
