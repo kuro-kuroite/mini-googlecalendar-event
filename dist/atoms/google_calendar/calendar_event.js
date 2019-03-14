@@ -40,28 +40,27 @@ function () {
   }, {
     key: "getStartTime",
     value: function getStartTime(event) {
+      return this.dateFns.zonedTimeToUtc(event.start.dateTime);
+    }
+  }, {
+    key: "getStartTimeRaw",
+    value: function getStartTimeRaw(event) {
       return event.start.dateTime;
     }
   }, {
     key: "getEndTime",
     value: function getEndTime(event) {
+      return this.dateFns.zonedTimeToUtc(event.end.dateTime);
+    }
+  }, {
+    key: "getEndTimeRaw",
+    value: function getEndTimeRaw(event) {
       return event.end.dateTime;
-    }
-  }, {
-    key: "parseStartTime",
-    value: function parseStartTime(event) {
-      // console.log(fetchInitialValues());
-      return this.dateFns.toDate(this.getStartTime(event));
-    }
-  }, {
-    key: "parseEndTime",
-    value: function parseEndTime(event) {
-      return this.dateFns.toDate(this.getEndTime(event));
     }
   }, {
     key: "getStartTimesOfDay",
     value: function getStartTimesOfDay(event) {
-      return this.dateFns.format(this.dateFns.utcToZonedTime(this.getStartTime(event)), 'BBBB p');
+      return this.dateFns.format(this.getStartTime(event), 'BBBB p');
     }
   }]);
 

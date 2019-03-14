@@ -15,26 +15,22 @@ export default class CalendarEvent {
   }
 
   getStartTime(event) {
+    return this.dateFns.zonedTimeToUtc(event.start.dateTime);
+  }
+
+  getStartTimeRaw(event) {
     return event.start.dateTime;
   }
 
   getEndTime(event) {
+    return this.dateFns.zonedTimeToUtc(event.end.dateTime);
+  }
+
+  getEndTimeRaw(event) {
     return event.end.dateTime;
   }
 
-  parseStartTime(event) {
-    // console.log(fetchInitialValues());
-    return this.dateFns.toDate(this.getStartTime(event));
-  }
-
-  parseEndTime(event) {
-    return this.dateFns.toDate(this.getEndTime(event));
-  }
-
   getStartTimesOfDay(event) {
-    return this.dateFns.format(
-      this.dateFns.utcToZonedTime(this.getStartTime(event)),
-      'BBBB p',
-    );
+    return this.dateFns.format(this.getStartTime(event), 'BBBB p');
   }
 }
