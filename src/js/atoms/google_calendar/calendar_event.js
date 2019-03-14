@@ -18,17 +18,16 @@ export default class CalendarEvent {
     return this.dateFns.zonedTimeToUtc(event.start.dateTime);
   }
 
+  getStartTimeRaw(event) {
+    return event.start.dateTime;
+  }
+
   getEndTime(event) {
     return this.dateFns.zonedTimeToUtc(event.end.dateTime);
   }
 
-  parseStartTime(event) {
-    // console.log(fetchInitialValues());
-    return this.dateFns.toDate(this.getStartTime(event));
-  }
-
-  parseEndTime(event) {
-    return this.dateFns.toDate(this.getEndTime(event));
+  getEndTimeRaw(event) {
+    return event.end.dateTime;
   }
 
   getStartTimesOfDay(event) {
